@@ -4,6 +4,17 @@
 .vfx-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}.vfx-card{background:var(--panel);border:1px solid var(--line);min-width:0}.vfx-card video{width:100%;aspect-ratio:16/9;display:block;background:#080c10;object-fit:contain}.vfx-card h3{font-size:24px;margin:12px 0}.vfx-card p{color:#bdc8cd}.vfx-card a{font-size:14px}.vfx-card video:focus-visible{outline:3px solid var(--accent);outline-offset:3px}@media(max-width:760px){.vfx-grid{grid-template-columns:1fr}}
 
 .architecture{margin-top:32px;padding:24px;border:1px solid var(--line)}.architecture ol{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:25px;padding-left:24px}.architecture li{padding:8px;color:#c5d0d4}@media(max-width:760px){.architecture ol{grid-template-columns:1fr}}
+.gallery{gap:24px;margin:8px 0 4px}
+.gallery figure{margin:0;border:1px solid var(--line);background:#141a1e;min-width:0}
+.gallery a{display:block}
+.gallery img{max-height:400px;object-fit:contain;background:#0b1013}
+.gallery figcaption{padding:18px 20px}
+.gallery h4{margin:0;font-size:17px;line-height:1.6;font-weight:600;color:var(--text)}
+.project .gallery p{margin:8px 0 0;font-size:14px;line-height:1.9}
+.featured:has(details[open]){display:block}
+.featured:has(details[open])>.cover{height:280px;min-height:0}
+.featured .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:760px){.featured .gallery{grid-template-columns:1fr}}
 /* Full-bleed opening film with a readable title overlay. */
 body>header{position:absolute;inset:0 0 auto;z-index:5;border:0;background:linear-gradient(#080c1099,transparent)}
 .hero-reel{isolation:isolate;min-height:760px;min-height:100svh;justify-content:center;text-align:center;background:#101418}
