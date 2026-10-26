@@ -8,3 +8,14 @@ for(const [index,p] of window.portfolioProjects.entries()){
  if(p.video){const v=node('video');v.src=p.video;v.controls=true;v.preload='none';v.style.width='100%';v.setAttribute('aria-label',p.title+'演示');d.append(v);}
  const gallery=node('div',null,'gallery');p.images.forEach((src,i)=>{const a=node('a');a.href=src;a.target='_blank';a.rel='noopener';a.setAttribute('aria-label','查看'+p.title+'图片 '+(i+1)+' 原图');const img=node('img');img.src=src;img.alt=p.title+' · 原站图片 '+(i+1);img.loading='lazy';a.append(img);gallery.append(a);});d.append(gallery);if(p.note)d.append(node('p',p.note,'note'));body.append(d);card.append(body);root.append(card);
 }
+
+const reel=document.querySelector('.hero-media video');
+const reelToggle=document.querySelector('.reel-toggle');
+if(reel && reelToggle){
+ const updateReelToggle=()=>{reelToggle.textContent=reel.paused?'播放动效':'暂停动效';reelToggle.setAttribute('aria-label',reel.paused?'播放背景视频':'暂停背景视频');};
+ reel.addEventListener('play',updateReelToggle);
+ reel.addEventListener('pause',updateReelToggle);
+ reelToggle.addEventListener('click',()=>{if(reel.paused){reel.play().catch(updateReelToggle);}else{reel.pause();}});
+ if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){reel.autoplay=false;reel.pause();}
+ updateReelToggle();
+}
